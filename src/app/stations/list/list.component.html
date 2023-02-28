@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="sort-container">
+        <span class="sort-toggle">
+          poređaj po kvalitetu
+          <img class="sort-direction" [class.rotate]="sortDirection==='asc'" src="./assets/svg/chevron-down.svg">
+        </span>
+        <span class="sort-toggle">
+          poređaj po imenu
+          <img class="sort-direction" [class.rotate]="sortDirection==='asc'" src="./assets/svg/chevron-down.svg">
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row mx-2">
+    <div *ngFor="let station of stations" class="col m-2">
+      <app-card [station]="station"></app-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+.sidemenu {
+  position: fixed;
+  width: 300px;
+  background-color: white;
+}
+
+.content {
+  position: relative;
+  left: 300px;
+  width: calc(100vw - 300px);
+}

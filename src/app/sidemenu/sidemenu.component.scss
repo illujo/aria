@@ -1,0 +1,44 @@
+.sidemenu-container {
+  height: 100vh;
+  border-right: 1px solid #dadada;
+  .logo-container {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .logo {
+      width: 165px;
+    }
+  }
+  .nav-link-container {
+    height: 65px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    opacity: 0.6;
+    transition: all 0.2s;
+    .nav-link-logo {
+      width: 24px;
+      height: auto;
+      margin-left: 45px;
+      margin-right: 20px;
+    }
+    .nav-link {
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+  .nav-link-container:hover {
+    background-color: rgba($color: #000000, $alpha: 0.05);
+    cursor: pointer;
+  }
+
+  .nav-link-container.active {
+    opacity: 1 !important;
+    transition: all 0.2s;
+    .nav-link {
+      font-weight: 700 !important;
+    }
+  }
+}

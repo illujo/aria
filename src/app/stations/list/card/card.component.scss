@@ -1,0 +1,15 @@
+.card {
+  background-color: white;
+  border-radius: 15px;
+  border: none;
+  padding-top: 10px;
+}
+
+.temp-icon,
+.humi-icon,
+.report-icon {
+  display: inline;
+  opacity: 0.3;
+  height: 20px;
+  width: auto;
+}
