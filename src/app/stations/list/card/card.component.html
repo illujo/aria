@@ -2,8 +2,9 @@
   <div class="col">
     <div class="row">
       <div class="col" style="max-width: 100px;">
-        <div class="aiq-display">
-          {{station?.airQuality?.aqi}}
+        <div class="aqi-display-container">
+          <span class="aqi-value">{{station?.airQuality?.aqi}}</span>
+          <span class="aqi-text">AQI</span>
         </div>
       </div>
       <div class="col">
@@ -18,23 +19,27 @@
           </div>
         </div>
         <div class="row">
-          <div class="col tempereature">
-            <img class="temp-icon" src="./assets/svg/thermometer.svg">
-            <span>{{station?.meteo?.temperature}}°C</span>
-          </div>
-          <div class="col humidity">
-            <img class="humi-icon" src="./assets/svg/droplet.svg">
-            <span>{{station?.meteo?.humidity}}%</span>
-          </div>
-          <div class="col reportsv">
-            <img class="report-icon" src="./assets/svg/cloud.svg">
-            <span>{{station?.meteo?.report}}</span>
+          <div class="col">
+            <div class="meteo-data">
+              <div class="temperature-container">
+                <img class="temp-icon" src="./assets/svg/thermometer.svg">
+                <span>{{station?.meteo?.temperature}}°C</span>
+              </div>
+              <div class="humidity-container">
+                <img class="humi-icon" src="./assets/svg/droplet.svg">
+                <span>{{station?.meteo?.humidity}}%</span>
+              </div>
+              <div class="conditions-container" hidden>
+                <img class="conditions-icon" src="./assets/svg/cloud.svg">
+                <span>{{station?.meteo?.report}}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col description">
         Kvalitet vazduha je <span style="color:#4AB916">dobar</span>.
       </div>
     </div>
