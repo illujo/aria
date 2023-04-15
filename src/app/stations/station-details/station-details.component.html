@@ -1,1 +1,18 @@
-<p>station-details works!</p>
+<div class="container-fluid" style="background:linear-gradient(-120deg, {{backgroundColor}} 0%, rgba(0,0,0,1) 400%)">
+  <div *ngIf="loadingStation" class="row loader">
+    <h4>Učitava se...</h4>
+  </div>
+  <div *ngIf="!loadingStation" class="row header">
+    <div class="col">
+      <div class="header-container">
+        <span class="back-link">
+          <img src="./assets/svg/chevron-down.svg">
+          nazad na spisak
+        </span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!loadingStation" class="row station">
+
+  </div>
+</div>

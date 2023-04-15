@@ -1,5 +1,5 @@
 export interface StationInfo {
-  id: number;
+  id: string;
   location: string;
   preciseLocation: string;
 }
@@ -20,6 +20,7 @@ export interface AirQuality {
 export interface Station {
   info: StationInfo;
   meteo: Meteo;
-  airQuality: AirQuality
+  airQuality: AirQuality;
+  level?: any;
 }
 

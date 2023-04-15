@@ -14,8 +14,8 @@
     </div>
   </div>
   <div class="row mx-2 g-5">
-    <div *ngFor="let station of stations" class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-4 ">
-      <app-card [station]="station"></app-card>
+    <div *ngFor="let station of stations" class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-4">
+      <app-card [station]="station" [routerLink]="['../detaljno/'+station.info.id]"></app-card>
     </div>
   </div>
 </div>

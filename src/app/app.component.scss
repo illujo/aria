@@ -1,3 +1,8 @@
+.topmenu {
+  display: none;
+  z-index: 10;
+}
+
 .sidemenu {
   position: fixed;
   width: 300px;
@@ -8,4 +13,20 @@
   position: relative;
   left: 300px;
   width: calc(100vw - 300px);
+}
+
+@media (max-width: 768px) {
+  .topmenu {
+    display: block;
+    position: fixed;
+  }
+  .sidemenu {
+    display: none;
+  }
+
+  .content {
+    padding-top: 80px;
+    left: 0px;
+    width: 100vw;
+  }
 }

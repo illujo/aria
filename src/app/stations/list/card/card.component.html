@@ -2,7 +2,8 @@
   <div class="col">
     <div class="row">
       <div class="col" style="max-width: 100px;">
-        <div class="aqi-display-container">
+        <div class="aqi-display-container"
+          style="background:linear-gradient(-60deg, {{station?.level.color}} 0%, rgba(0,0,0,1) 800%)">
           <span class="aqi-value">{{station?.airQuality?.aqi}}</span>
           <span class="aqi-text">AQI</span>
         </div>
@@ -40,7 +41,7 @@
     </div>
     <div class="row">
       <div class="col description">
-        Kvalitet vazduha je <span style="color:#4AB916">dobar</span>.
+        Kvalitet vazduha je <span style="color:{{station?.level.color}}">{{station?.level.desc}}</span>.
       </div>
     </div>
   </div>

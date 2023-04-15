@@ -9,7 +9,7 @@ const routes: Routes =
     { path: '', component: ListComponent },
     { path: 'spisak', component: ListComponent },
     { path: 'karta', component: MapComponent },
-    { path: 'detalji', component: StationComponent }
+    { path: 'detaljno/:id', component: StationComponent }
   ];
 
 @NgModule({
