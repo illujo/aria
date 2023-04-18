@@ -24,8 +24,7 @@ export class StationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.id)
-      this._station.getStation(this.id).then((result) => this.loadStation(<Station>result));
+    this.getData()
   }
 
   loadStation(station: Station) {
@@ -33,5 +32,12 @@ export class StationComponent implements OnInit {
     this.loadingStation = false;
     this.station = station;
     this.backgroundColor = station.level.color;
+  }
+
+  getData() {
+    if (this.id) {
+      this.loadingStation = true;
+      this._station.getStation(this.id).then((result) => this.loadStation(<Station>result));
+    }
   }
 }

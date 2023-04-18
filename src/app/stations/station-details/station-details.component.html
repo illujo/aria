@@ -1,18 +1,59 @@
-<div class="container-fluid" style="background:linear-gradient(-120deg, {{backgroundColor}} 0%, rgba(0,0,0,1) 400%)">
-  <div *ngIf="loadingStation" class="row loader">
-    <h4>Učitava se...</h4>
+<div class="container-fluid" style="background-color: {{backgroundColor}}">
+  <div class="gradient-container">
+    <div class="gradient"></div>
   </div>
-  <div *ngIf="!loadingStation" class="row header">
-    <div class="col">
-      <div class="header-container">
-        <span class="back-link">
-          <img src="./assets/svg/chevron-down.svg">
-          nazad na spisak
-        </span>
+  <div class="content">
+    <div *ngIf="loadingStation" class="row loader">
+      <h4>Učitava se...</h4>
+    </div>
+    <div *ngIf="!loadingStation" class="row d-none d-sm-none d-md-flex header">
+      <div class="col">
+        <div class="header-container">
+          <span class="back-link" [routerLink]="['../../spisak']">
+            <img src="./assets/svg/chevron-down.svg">
+            nazad na spisak
+          </span>
+          <span class="refresh-link" (click)="getData()">
+            <img src="./assets/svg/refresh-ccw.svg">
+            osvježi podatke
+          </span>
+        </div>
       </div>
     </div>
-  </div>
-  <div *ngIf="!loadingStation" class="row station">
-
+    <div *ngIf="!loadingStation" class="row basic-info">
+      <div class="col">
+        <div class="location">{{station?.info?.location}}</div>
+        <div class="preciseLocation">{{station?.info?.preciseLocation}}</div>
+        <div class="meteo-data">
+          <div class="temperature-container">
+            <img class="temp-icon" src="./assets/svg/thermometer.svg">
+            <span>{{station?.meteo?.temperature}}°C</span>
+          </div>
+          <div class="humidity-container">
+            <img class="humi-icon" src="./assets/svg/droplet.svg">
+            <span>{{station?.meteo?.humidity}}%</span>
+          </div>
+          <div class="conditions-container" hidden>
+            <img class="conditions-icon" src="./assets/svg/cloud.svg">
+            <span>{{station?.meteo?.report}}</span>
+          </div>
+        </div>
+        <div class="short-description">
+          Kvalitet vazduha je <span style="text-decoration: underline;">{{station?.level.desc}}</span>.
+        </div>
+        <div class="description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua.
+        </div>
+        <div class="aqi">
+          <div class="aqi-value">
+            {{station?.airQuality?.aqi}}
+          </div>
+          <div class="aqi-text">
+            AQI
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

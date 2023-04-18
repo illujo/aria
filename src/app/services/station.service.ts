@@ -6,7 +6,7 @@ import { Station } from '../stations/models/station';
 })
 export class StationService {
   levels = [
-    { desc: 'vrhunski', color: "#00ccda", min: 0, max: 25 },
+    { desc: 'odličan', color: "#00ccda", min: 0, max: 25 },
     { desc: 'dobar', color: "#85d348", min: 26, max: 50 },
     { desc: 'prihvatljiv', color: "#e1d91c", min: 51, max: 100 },
     { desc: 'loš', color: "#e46d17", min: 101, max: 200 },

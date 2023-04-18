@@ -1,6 +1,7 @@
 .topmenu {
   display: none;
   z-index: 10;
+  height: 76px;
 }
 
 .sidemenu {
@@ -12,7 +13,7 @@
 .content {
   position: relative;
   left: 300px;
-  width: calc(100vw - 300px);
+  width: calc(100% - 300px);
 }
 
 @media (max-width: 768px) {
@@ -25,8 +26,8 @@
   }
 
   .content {
-    padding-top: 80px;
+    padding-top: 76px;
     left: 0px;
-    width: 100vw;
+    width: 100%;
   }
 }

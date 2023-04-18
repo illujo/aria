@@ -1,3 +1,9 @@
+export interface Station {
+  info: StationInfo;
+  meteo: Meteo;
+  airQuality: AirQuality;
+  level?: any; //added in webapp
+}
 export interface StationInfo {
   id: string;
   location: string;
@@ -17,10 +23,5 @@ export interface AirQuality {
   tvoc: number;
 }
 
-export interface Station {
-  info: StationInfo;
-  meteo: Meteo;
-  airQuality: AirQuality;
-  level?: any;
-}
+
 
