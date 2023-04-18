@@ -10,4 +10,4 @@ export class MeasurementsComponent {
     this._title.setTitle('Arija - Šta mjerenja znače');
   }
 }
-}
+
