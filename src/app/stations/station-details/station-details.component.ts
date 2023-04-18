@@ -37,7 +37,7 @@ export class StationComponent implements OnInit {
     this.station = station;
     this.backgroundColor = station.level.color;
     this._meta.updateTag({
-      property: 'og:title', content: `Kvalitet vazduha za ${this.station.info.location}, ${this.station.info.preciseLocation}`;
+      property: 'og:title', content: `Kvalitet vazduha za ${this.station.info.location}, ${this.station.info.preciseLocation}`
     });
     this._title.setTitle(`${this.station.info.location}, ${this.station.info.preciseLocation}`);
   }
