@@ -24,6 +24,7 @@ export class StationComponent implements OnInit {
     let id = this._route.snapshot.paramMap.get('id');
     if (id)
       this.id = id;
+
   }
 
   ngOnInit(): void {
@@ -39,7 +40,7 @@ export class StationComponent implements OnInit {
     this._meta.updateTag({
       property: 'og:title', content: `Kvalitet vazduha za ${this.station.info.location}, ${this.station.info.preciseLocation}`
     });
-    this._title.setTitle(`${this.station.info.location}, ${this.station.info.preciseLocation}`);
+    this._title.setTitle(`Arija - ${this.station.info.location}, ${this.station.info.preciseLocation}`);
   }
 
   getData() {

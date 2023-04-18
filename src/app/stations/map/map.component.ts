@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 declare var ol: any;
 
 @Component({
@@ -8,6 +9,10 @@ declare var ol: any;
 export class MapComponent implements OnInit {
   map: any;
   ol: any;
+
+  constructor(private _title: Title) {
+    this._title.setTitle('Arija - Niđe nebo nije plavo');
+  }
 
   ngOnInit() {
 
