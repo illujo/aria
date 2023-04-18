@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Route } from '@angular/router';
 import { StationService } from 'src/app/services/station.service';
 import { Station } from '../models/station';
@@ -16,7 +17,8 @@ export class StationComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _station: StationService
+    private _station: StationService,
+    private _meta: Meta
   ) {
     let id = this._route.snapshot.paramMap.get('id');
     if (id)
@@ -24,7 +26,7 @@ export class StationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getData()
+    this.getData();
   }
 
   loadStation(station: Station) {
@@ -32,6 +34,10 @@ export class StationComponent implements OnInit {
     this.loadingStation = false;
     this.station = station;
     this.backgroundColor = station.level.color;
+    this._meta.updateTag({
+      property: 'og:title', content: `Kvalitet vazduha za ${this.station.info.location}, ${this.station.info.preciseLocation}`
+    });
+
   }
 
   getData() {
