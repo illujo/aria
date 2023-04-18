@@ -10,6 +10,7 @@ export class MapComponent implements OnInit {
   ol: any;
 
   ngOnInit() {
+
     this.map = new ol.Map({
       target: 'map',
       layers: [
@@ -22,11 +23,13 @@ export class MapComponent implements OnInit {
         zoom: 8.6
       })
     });
+
   }
 
   setCenter() {
     var view = this.map.getView();
     view.setCenter(ol.proj.fromLonLat([19.267509, 42.748515]));
     view.setZoom(8.6);
+    ol.Marker([19.238353336103224, 42.45389507634392]).addTo(this.map);
   }
 }
