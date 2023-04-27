@@ -13,6 +13,7 @@ export class MapComponent implements OnInit {
   ol: any;
   stations: Station[] = [];
   markers: any;
+  loaded: boolean = false;
 
   constructor(private _title: Title,
     private _station: StationService) {
@@ -20,7 +21,6 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.map = new ol.Map({
       target: 'map',
       layers: [
@@ -43,6 +43,8 @@ export class MapComponent implements OnInit {
       this.setStationMarkers(stations);
       await new Promise(resolve => setTimeout(resolve, 1));
       this.setCenter();
+      await new Promise(resolve => setTimeout(resolve, 1));
+      this.unhideMarkers();
     })
   }
 
@@ -63,6 +65,11 @@ export class MapComponent implements OnInit {
     var view = this.map.getView();
     view.setCenter(ol.proj.fromLonLat([19.267509, 42.748515]));
     view.setZoom(8.6);
-    ol.Marker([19.238353336103224, 42.45389507634392]).addTo(this.map);
+  }
+
+  unhideMarkers() {
+    this.stations.forEach(station => {
+      document.getElementById('sm' + station.info.id)?.classList.add('loaded');
+    });
   }
 }

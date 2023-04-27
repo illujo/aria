@@ -1,7 +1,7 @@
 <div id="map" class="map"></div>
 <button class="btn btn-light recenter-button" (click)="setCenter()">Centriraj</button>
-<div id="sm{{station.info.id}}" class="station-marker" [routerLink]="['../detaljno/'+station.info.id]"
-  *ngFor="let station of stations">
+<div id="sm{{station.info.id}}" class="station-marker" [class.show]="loaded"
+  [routerLink]="['../detaljno/'+station.info.id]" *ngFor="let station of stations">
   <div class="aqi-cicle" style="background-color: {{station['level'].color}}">
     <span>{{station.airQuality.aqi}}
     </span>
