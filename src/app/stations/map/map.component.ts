@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { StationService } from 'src/app/services/station.service';
 import { Station } from '../models/station';
-=======
 import { Title } from '@angular/platform-browser';
->>>>>>> 64e86318d82eff32ab4ddf1706d3b1ed7bac1e6c
 declare var ol: any;
 
 @Component({
@@ -17,11 +14,8 @@ export class MapComponent implements OnInit {
   stations: Station[] = [];
   markers: any;
 
-  constructor(private _station: StationService) {
-
-  }
-
-  constructor(private _title: Title) {
+  constructor(private _title: Title,
+    private _station: StationService) {
     this._title.setTitle('Arija - Niđe nebo nije plavo');
   }
 
