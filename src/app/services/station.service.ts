@@ -19,7 +19,8 @@ export class StationService {
       info: {
         id: '4',
         location: 'Kolašin',
-        preciseLocation: 'Centar'
+        preciseLocation: 'Centar',
+        coordinates: [42.8256935303433, 19.518345000541036]
       },
       meteo: {
         temperature: 9.1,
@@ -37,7 +38,9 @@ export class StationService {
       info: {
         id: '1',
         location: 'Podgorica',
-        preciseLocation: 'Centar'
+        preciseLocation: 'Centar',
+        coordinates: [42.44065949386012, 19.264541538549025]
+
       },
       meteo: {
         temperature: 14.2,
@@ -55,7 +58,8 @@ export class StationService {
       info: {
         id: '3',
         location: 'Podgorica',
-        preciseLocation: 'Masline'
+        preciseLocation: 'Masline',
+        coordinates: [42.44919924086844, 19.286010520844773]
       },
       meteo: {
         temperature: 13.1,
@@ -73,7 +77,9 @@ export class StationService {
       info: {
         id: '2',
         location: 'Podgorica',
-        preciseLocation: 'Tološi'
+        preciseLocation: 'Tološi',
+        coordinates: [42.451948143457955, 19.231246025063253]
+
       },
       meteo: {
         temperature: 12.1,
@@ -91,7 +97,9 @@ export class StationService {
       info: {
         id: '7',
         location: 'Berane',
-        preciseLocation: 'Centar'
+        preciseLocation: 'Centar',
+        coordinates: [42.84454096626121, 19.874198894051396]
+
       },
       meteo: {
         temperature: 11.2,
@@ -109,7 +117,9 @@ export class StationService {
       info: {
         id: '6',
         location: 'Bijelo Polje',
-        preciseLocation: 'Centar'
+        preciseLocation: 'Centar',
+        coordinates: [43.03434879298405, 19.747555164185165]
+
       },
       meteo: {
         temperature: 10.2,
@@ -127,7 +137,9 @@ export class StationService {
       info: {
         id: '5',
         location: 'Pljevlja',
-        preciseLocation: 'Centar'
+        preciseLocation: 'Centar',
+        coordinates: [43.35688776870061, 19.357131911678763]
+
       },
       meteo: {
         temperature: 8.2,
@@ -145,8 +157,8 @@ export class StationService {
 
   constructor() { }
 
-  getStations(): Station[] {
-    return this.addColors(this.stations);
+  getStations(): Promise<Station[]> {
+    return new Promise(resolve => setTimeout(() => { resolve(this.addColors(this.stations)) }, 1000));
   }
 
   getStation(id: string) {
@@ -154,19 +166,19 @@ export class StationService {
     return new Promise(resolve => setTimeout(() => { resolve(station) }, 1000));
   }
 
-  addColor(station: any) {
+  private addColor(station: any) {
     station.level = this.findLevel(station.airQuality.aqi);
     return station;
   }
 
-  addColors(stations: any[]) {
+  private addColors(stations: any[]) {
     stations.forEach(station => {
       station.level = this.findLevel(station.airQuality.aqi);
     });
     return stations;
   }
 
-  findLevel(value: number) {
+  private findLevel(value: number) {
     return this.levels.find(function (range) {
       return value >= range.min && value <= range.max;
     });

@@ -8,6 +8,7 @@ export interface StationInfo {
   id: string;
   location: string;
   preciseLocation: string;
+  coordinates: number[];
 }
 
 export interface Meteo {
