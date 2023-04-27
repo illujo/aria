@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { StationService } from 'src/app/services/station.service';
 import { Station } from '../models/station';
+=======
+import { Title } from '@angular/platform-browser';
+>>>>>>> 64e86318d82eff32ab4ddf1706d3b1ed7bac1e6c
 declare var ol: any;
 
 @Component({
@@ -17,7 +21,12 @@ export class MapComponent implements OnInit {
 
   }
 
+  constructor(private _title: Title) {
+    this._title.setTitle('Arija - Niđe nebo nije plavo');
+  }
+
   ngOnInit() {
+
     this.map = new ol.Map({
       target: 'map',
       layers: [
@@ -60,5 +69,6 @@ export class MapComponent implements OnInit {
     var view = this.map.getView();
     view.setCenter(ol.proj.fromLonLat([19.267509, 42.748515]));
     view.setZoom(8.6);
+    ol.Marker([19.238353336103224, 42.45389507634392]).addTo(this.map);
   }
 }

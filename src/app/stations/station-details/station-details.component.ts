@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Route } from '@angular/router';
 import { StationService } from 'src/app/services/station.service';
 import { Station } from '../models/station';
@@ -16,22 +17,30 @@ export class StationComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _station: StationService
+    private _station: StationService,
+    private _meta: Meta,
+    private _title: Title
   ) {
     let id = this._route.snapshot.paramMap.get('id');
     if (id)
       this.id = id;
+
   }
 
   ngOnInit(): void {
-    this.getData()
+    this.getData();
   }
 
   loadStation(station: Station) {
+
     console.log('loading', station);
     this.loadingStation = false;
     this.station = station;
     this.backgroundColor = station.level.color;
+    this._meta.updateTag({
+      property: 'og:title', content: `Kvalitet vazduha za ${this.station.info.location}, ${this.station.info.preciseLocation}`
+    });
+    this._title.setTitle(`Arija - ${this.station.info.location}, ${this.station.info.preciseLocation}`);
   }
 
   getData() {
