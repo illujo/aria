@@ -30,7 +30,7 @@ export class MapComponent implements OnInit {
       ],
       view: new ol.View({
         center: ol.proj.fromLonLat([19.267509, 42.748515]),
-        zoom: 8.6
+        zoom: 9
       })
     });
     this.getStations();
@@ -64,7 +64,7 @@ export class MapComponent implements OnInit {
   setCenter() {
     var view = this.map.getView();
     view.setCenter(ol.proj.fromLonLat([19.267509, 42.748515]));
-    view.setZoom(8.6);
+    view.setZoom(9);
   }
 
   unhideMarkers() {
