@@ -35,28 +35,38 @@
     z-index: 1;
     width: 0px !important;
     border-radius: 8px;
+    height: 50px !important;
     background-color: white;
     color: black;
     overflow: hidden;
+    opacity: 0;
     transition: all 0.4s;
   }
 }
 
 .station-marker:hover {
+  cursor: pointer;
   .aqi-cicle {
     z-index: 9999;
-    cursor: pointer;
     transform: scale(1.1);
     filter: brightness(1.05);
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
     box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.48);
     transition: all 0.2s;
   }
   .details {
-    z-index: 999;
+    z-index: 99999;
+    position: relative;
+    top: -2px;
+    left: 2px;
     width: auto !important;
     background-color: white;
-    padding: 1px 10px 1px 10px;
+    padding: 1px 10px 1px 8px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
     color: black;
+    opacity: 1;
     transition: all 0.4s;
   }
 }
