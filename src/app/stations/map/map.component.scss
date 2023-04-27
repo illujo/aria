@@ -8,3 +8,55 @@
   right: 15px;
   top: 15px;
 }
+
+.station-marker {
+  display: flex;
+  flex-direction: row;
+  z-index: 9;
+  .aqi-cicle {
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    width: 48px;
+    height: 48px;
+    color: white;
+    border-radius: 24px;
+    border: 1px solid white;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    text-shadow: 0px 0px 30px black;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+    transition: all 0.2s;
+  }
+  .details {
+    z-index: 1;
+    width: 0px !important;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    overflow: hidden;
+    transition: all 0.4s;
+  }
+}
+
+.station-marker:hover {
+  .aqi-cicle {
+    z-index: 9999;
+    cursor: pointer;
+    transform: scale(1.1);
+    filter: brightness(1.05);
+    box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.48);
+    transition: all 0.2s;
+  }
+  .details {
+    z-index: 999;
+    width: auto !important;
+    background-color: white;
+    padding: 1px 10px 1px 10px;
+    color: black;
+    transition: all 0.4s;
+  }
+}

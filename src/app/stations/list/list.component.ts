@@ -18,7 +18,9 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.stations = this._stationService.getStations();
+    this._stationService.getStations().then(stations => {
+      this.stations = stations;
+    });
     console.log('this.stations', this.stations);
   }
 
